@@ -47,3 +47,9 @@ The above code will add a small link next to the select tag. When clicked, a tex
 // Assuming you have included all necessary jQuery UI components required for autocomplete...
 $('.selectTagSelector').autocompleteFloater()
 ```
+
+## TODO
+
+* Follow good jQuery plugin authorigin practices: http://docs.jquery.com/Plugins/Authoring.
+* Live demo.
+* Fix failing test for selecting option. The click() is not causing jasmine to behave correctly.
