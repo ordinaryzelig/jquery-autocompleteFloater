@@ -1,4 +1,4 @@
-# jQuery-selectTagAutcompleteFloater
+# jQuery-selectTagAutocompleteFloater
 
 https://github.com/ordinaryzelig/jquery-autocompleteFloater
 
@@ -46,8 +46,8 @@ The above code will add a small link next to the select tag. When clicked, a tex
 Things to include:
 
 * jQuery (1.7.2 is included in vendor/)
-* jquery-selectTagAutcompleteFloater.js (prettier CoffeeScript version available too)
-* jquery-selectTagAutcompleteFloater.css
+* jquery-selectTagAutocompleteFloater.js (prettier CoffeeScript version available too)
+* jquery-selectTagAutocompleteFloater.css
 
 ```javascript
 $('.selectTagSelector').autocompleteFloater()
