@@ -2,7 +2,10 @@
   '=========================';
   'autocompleteFloater';
   '';
+  'v0.0.1';
+  '';
   'https://github.com/ordinaryzelig/jquery-autocompleteFloater';
+  'This software is offered as is without warranty, yada yada.';
   '=========================';
   var autocompleteFloaterFunctions;
 
