@@ -1,14 +1,47 @@
 # jQuery-selectTagAutcompleteFloater
 
-link to gihub...
+https://github.com/ordinaryzelig/jquery-autocompleteFloater
 
 ## Description
 
-Often times a form that uses a select tag has too many options. Often times the solution is to convert it into a jQuery autocomplete text field. However, this poses a problem when the value of the select option is different than the value (what is shown on the page). For example, this is common in Rails applications where an association is represented as a select tag where the name of the association is visible on the page, but the important data is the id of the association that the select tag assigns when an option is selected. This plugin attempts to fix this by unobtrusively adding an autocomplete floater that controls the selection while leaving the original select tag intact.
+* Unobtrusively add jQuery autocomplete functionality to a select tag.
+* A link will be added. When clicked, the autocomplete floater appears.
+* This autocomplete works just like the normal jQuery-UI autocomplete.
+* When a selection is made, the select tag will change to it.
+* The select tag never changes, leaving your form as it always was.
 
-The select tag will be accompanied by the jQuery autocomplete you would normally use. When a selection is made, the autocomplete disappears, and the select tag will have the proper option selected.
+## Rationale
+
+Consider the following select tag:
+
+```html
+<select>
+  <option value="1">Volvo</option>
+  <option value="2">Saab</option>
+  <option value="3">Mercedes</option>
+  <option value="4">Audi</option>
+</select>
+```
+
+The important data to send when the form is submitted are the values (the numbers). If we were to use jQuery's autocomplete alone, we would have a text field that would store the text of the option (the car company). That's not useful.
+
+It's common in Rails forms for select tags to represent associations:
+
+```erb
+<%= form_for @article do |f| %>
+  <%= f.collection_select :user_id, User.all, :id, :name, {}, class: 'autocomplete' %>
+<% end %>
+```
+
+This plugin will unobtrusively add autocomplete functionality.
+
+```javascript
+$('.autocomplete').autocompleteFloater()
+```
+
+The above code will add a small link next to the select tag. When clicked, a text field will appear. This text field uses the standard jQuery autocomplete plugin. When a selection is made, the autocomplete disappears, and the select tag will have the proper option selected.
 
 ## Usage
 
 // Assuming you have included all necessary jQuery UI components required for autocomplete...
-$('#select_tag_by_id').autocompleteFloater()
+$('.selectTagSelector').autocompleteFloater()
