@@ -1,7 +1,7 @@
 '========================='
 'autocompleteFloater'
 ''
-'v0.0.1'
+'v0.0.2'
 ''
 'https://github.com/ordinaryzelig/jquery-autocompleteFloater'
 'This software is offered as is without warranty, yada yada.'
@@ -60,6 +60,8 @@ autocompleteFloaterFunctions = {
   createAutocompleteTextField: (selectTag) ->
     $('<input type="text" />')
 
+  # Create a link that toggles the floater.
+  # When floater visible, focus on text field.
   createLinktoShowFloater: ->
     linkContent = '+'
     link = $("""
@@ -70,7 +72,11 @@ autocompleteFloaterFunctions = {
     )
     link.click (event) ->
       event.preventDefault()
-      $(@).next('.autocompleteFloater').toggle()
+      floater = $(@).next('.autocompleteFloater')
+      floater.toggle()
+      if floater.is(':visible')
+        textField = floater.children('input:text')
+        textField.focus()
     link
 
 }

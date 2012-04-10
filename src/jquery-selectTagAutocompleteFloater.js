@@ -2,7 +2,7 @@
   '=========================';
   'autocompleteFloater';
   '';
-  'v0.0.1';
+  'v0.0.2';
   '';
   'https://github.com/ordinaryzelig/jquery-autocompleteFloater';
   'This software is offered as is without warranty, yada yada.';
@@ -61,8 +61,14 @@
       linkContent = '+';
       link = $("<a class=\"autocompleteFloaterLink\" href=\"\">\n  " + linkContent + "\n</a>");
       link.click(function(event) {
+        var floater, textField;
         event.preventDefault();
-        return $(this).next('.autocompleteFloater').toggle();
+        floater = $(this).next('.autocompleteFloater');
+        floater.toggle();
+        if (floater.is(':visible')) {
+          textField = floater.children('input:text');
+          return textField.focus();
+        }
       });
       return link;
     }
