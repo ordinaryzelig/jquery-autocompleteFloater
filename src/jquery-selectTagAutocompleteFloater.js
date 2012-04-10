@@ -10,37 +10,14 @@
   var autocompleteFloaterFunctions;
 
   $.fn.autocompleteFloater = function() {
-    var floater, linkToShowFloater, selectTags;
-    selectTags = this;
-    linkToShowFloater = autocompleteFloaterFunctions.createLinktoShowFloater();
-    selectTags.after(linkToShowFloater);
-    floater = autocompleteFloaterFunctions.createFloater();
-    linkToShowFloater.after(floater);
-    return selectTags.each(function() {
-      var optionStrings, selectTag, textField;
+    return this.each(function() {
+      var floater, linkToShowFloater, selectTag;
       selectTag = $(this);
-      optionStrings = selectTag.children('option').map(function() {
-        return $(this).html();
-      }).get();
-      textField = selectTag.siblings('.autocompleteFloater').children('input:text');
-      return textField.autocomplete({
-        source: optionStrings,
-        select: function(event, ui) {
-          var selected;
-          selected = ui.item.value;
-          floater = $(this).parents('.autocompleteFloater');
-          selectTag = floater.siblings('select');
-          selectTag.children('option').each(function() {
-            var option;
-            option = $(this);
-            if (option.text() === selected) {
-              selectTag.val(parseInt(option.val()));
-              return false;
-            }
-          });
-          return floater.hide();
-        }
-      });
+      linkToShowFloater = autocompleteFloaterFunctions.createLinktoShowFloater();
+      selectTag.after(linkToShowFloater);
+      floater = autocompleteFloaterFunctions.createFloater();
+      linkToShowFloater.after(floater);
+      return autocompleteFloaterFunctions.autocomplete(selectTag);
     });
   };
 
@@ -67,10 +44,36 @@
         floater.toggle();
         if (floater.is(':visible')) {
           textField = floater.children('input:text');
+          textField.val('');
           return textField.focus();
         }
       });
       return link;
+    },
+    autocomplete: function(selectTag) {
+      var optionStrings, textField;
+      optionStrings = selectTag.children('option').map(function() {
+        return $(this).html();
+      }).get();
+      textField = selectTag.siblings('.autocompleteFloater').children('input:text');
+      return textField.autocomplete({
+        source: optionStrings,
+        select: function(event, ui) {
+          var floater, selected;
+          selected = ui.item.value;
+          floater = $(this).parents('.autocompleteFloater');
+          selectTag = floater.siblings('select');
+          selectTag.children('option').each(function() {
+            var option;
+            option = $(this);
+            if (option.text() === selected) {
+              selectTag.val(parseInt(option.val()));
+              return false;
+            }
+          });
+          return floater.hide();
+        }
+      });
     }
   };
 

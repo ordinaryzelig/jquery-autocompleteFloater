@@ -43,8 +43,13 @@ The above code will add a small link next to the select tag. When clicked, a tex
 
 ## Usage
 
+Things to include:
+
+* jQuery (1.7.2 is included in vendor/)
+* jquery-selectTagAutcompleteFloater.js (prettier CoffeeScript version available too)
+* jquery-selectTagAutcompleteFloater.css
+
 ```javascript
-// Assuming you have included all necessary jQuery UI components required for autocomplete...
 $('.selectTagSelector').autocompleteFloater()
 ```
 
@@ -53,3 +58,4 @@ $('.selectTagSelector').autocompleteFloater()
 * Follow good jQuery plugin authorigin practices: http://docs.jquery.com/Plugins/Authoring.
 * Live demo.
 * Fix failing test for selecting option. The click() is not causing jasmine to behave correctly.
+* Wrap in ruby gem.
