@@ -43,11 +43,12 @@ The above code will add a small link next to the select tag. When clicked, a tex
 
 ## Usage
 
-Things to include:
+What you need:
 
-* jQuery (1.7.2 is included in vendor/)
-* jquery-selectTagAutocompleteFloater.js (prettier CoffeeScript version available too)
-* jquery-selectTagAutocompleteFloater.css
+* jQuery (1.7.2 is included in `vendor/`)
+* jQuery-UI and "stuff" (custom 1.8.18 is included in `vendor/`. Includes minimum jQuery-UI modules needed for autocomplete: core, widget, position, autocomplete)
+* `jquery-selectTagAutocompleteFloater.js` (prettier CoffeeScript version available too)
+* `jquery-selectTagAutocompleteFloater.css`
 
 ```javascript
 $('.selectTagSelector').autocompleteFloater()
