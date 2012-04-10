@@ -43,5 +43,7 @@ The above code will add a small link next to the select tag. When clicked, a tex
 
 ## Usage
 
+```javascript
 // Assuming you have included all necessary jQuery UI components required for autocomplete...
 $('.selectTagSelector').autocompleteFloater()
+```
