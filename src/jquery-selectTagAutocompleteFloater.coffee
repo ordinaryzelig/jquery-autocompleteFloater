@@ -1,11 +1,13 @@
 '========================='
 'autocompleteFloater'
 ''
-'v0.0.2'
+'v0.0.3'
 ''
 'https://github.com/ordinaryzelig/jquery-autocompleteFloater'
 'This software is offered as is without warranty, yada yada.'
 '========================='
+
+$ = jQuery
 
 $.fn.autocompleteFloater = ->
   @.each ->
