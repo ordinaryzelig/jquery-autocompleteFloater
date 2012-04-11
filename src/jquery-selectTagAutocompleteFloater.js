@@ -2,7 +2,7 @@
   '=========================';
   'autocompleteFloater';
   '';
-  'v0.1.0';
+  'v0.1.1';
   '';
   'https://github.com/ordinaryzelig/jquery-autocompleteFloater';
   'This software is offered as is without warranty, yada yada.';
@@ -33,7 +33,13 @@
       return floater;
     },
     createAutocompleteTextField: function(selectTag) {
-      return $('<input type="text" placeholder="Search" />');
+      var textField;
+      textField = $('<input type="text" placeholder="Search" />');
+      return textField.keydown(function(event) {
+        var returnKeyCode;
+        returnKeyCode = 13;
+        if (event.keyCode === returnKeyCode) return event.preventDefault();
+      });
     },
     createLinktoShowFloater: function() {
       var link, linkContent;

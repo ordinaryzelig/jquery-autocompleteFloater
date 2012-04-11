@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.1.1 2012-04-10
+
+### Minor features
+
+* Prevent form submission when 'enter' key pressed in text field.
+
 ## v0.1.0 2012-04-10
 
 ### Minor features

@@ -1,7 +1,7 @@
 '========================='
 'autocompleteFloater'
 ''
-'v0.1.0'
+'v0.1.1'
 ''
 'https://github.com/ordinaryzelig/jquery-autocompleteFloater'
 'This software is offered as is without warranty, yada yada.'
@@ -35,7 +35,11 @@ autocompleteFloaterFunctions = {
     floater
 
   createAutocompleteTextField: (selectTag) ->
-    $('<input type="text" placeholder="Search" />')
+    textField = $('<input type="text" placeholder="Search" />')
+    textField.keydown (event) ->
+      returnKeyCode = 13
+      if event.keyCode == returnKeyCode
+        event.preventDefault()
 
   # Create a link that toggles the floater.
   # When floater visible, focus on text field.
