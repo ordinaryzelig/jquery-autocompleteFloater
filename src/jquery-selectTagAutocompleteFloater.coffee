@@ -36,10 +36,15 @@ autocompleteFloaterFunctions = {
 
   createAutocompleteTextField: (selectTag) ->
     textField = $('<input type="text" placeholder="Search" />')
+    # Ignore return key presses to prevent form submission.
     textField.keydown (event) ->
       returnKeyCode = 13
       if event.keyCode == returnKeyCode
         event.preventDefault()
+    # Hide floater on blur.
+    textField.blur ->
+      floater = $(@).parents('.autocompleteFloater:first')
+      floater.hide()
 
   # Create a link that toggles the floater.
   # When floater visible, focus on text field.
@@ -54,7 +59,7 @@ autocompleteFloaterFunctions = {
     link.click (event) ->
       event.preventDefault()
       floater = $(@).nextAll('.autocompleteFloater:first')
-      floater.toggle()
+      floater.show()
       if floater.is(':visible')
         textField = floater.children('input:text')
         textField.val('')
@@ -87,5 +92,7 @@ autocompleteFloaterFunctions = {
             return false
         # Hide the floater.
         floater.hide()
+        # Focus on select tag.
+        selectTag.focus()
 
 }

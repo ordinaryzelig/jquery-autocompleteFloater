@@ -35,10 +35,15 @@
     createAutocompleteTextField: function(selectTag) {
       var textField;
       textField = $('<input type="text" placeholder="Search" />');
-      return textField.keydown(function(event) {
+      textField.keydown(function(event) {
         var returnKeyCode;
         returnKeyCode = 13;
         if (event.keyCode === returnKeyCode) return event.preventDefault();
+      });
+      return textField.blur(function() {
+        var floater;
+        floater = $(this).parents('.autocompleteFloater:first');
+        return floater.hide();
       });
     },
     createLinktoShowFloater: function() {
@@ -49,7 +54,7 @@
         var floater, textField;
         event.preventDefault();
         floater = $(this).nextAll('.autocompleteFloater:first');
-        floater.toggle();
+        floater.show();
         if (floater.is(':visible')) {
           textField = floater.children('input:text');
           textField.val('');
@@ -79,7 +84,8 @@
               return false;
             }
           });
-          return floater.hide();
+          floater.hide();
+          return selectTag.focus();
         }
       });
     }

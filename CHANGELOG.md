@@ -5,6 +5,8 @@
 ### Minor features
 
 * Prevent form submission when 'enter' key pressed in text field.
+* Hide floater on blur.
+* Focus on select tag after selection made.
 
 ## v0.1.0 2012-04-10
 
