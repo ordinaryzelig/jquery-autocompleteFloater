@@ -1,7 +1,7 @@
 '========================='
 'autocompleteFloater'
 ''
-'v0.0.4'
+'v0.1.0'
 ''
 'https://github.com/ordinaryzelig/jquery-autocompleteFloater'
 'This software is offered as is without warranty, yada yada.'
@@ -28,14 +28,14 @@ $.fn.autocompleteFloater = ->
 autocompleteFloaterFunctions = {
 
   createFloater: ->
-    floater = $('<div class="autocompleteFloater"></div>')
+    floater = $('<div class="autocompleteFloater ui-state-hover"></div>')
     floater.hide()
     autocompleteTextField = @createAutocompleteTextField()
     autocompleteTextField.appendTo(floater)
     floater
 
   createAutocompleteTextField: (selectTag) ->
-    $('<input type="text" />')
+    $('<input type="text" placeholder="Search" />')
 
   # Create a link that toggles the floater.
   # When floater visible, focus on text field.

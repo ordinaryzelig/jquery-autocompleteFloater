@@ -2,7 +2,7 @@
   '=========================';
   'autocompleteFloater';
   '';
-  'v0.0.4';
+  'v0.1.0';
   '';
   'https://github.com/ordinaryzelig/jquery-autocompleteFloater';
   'This software is offered as is without warranty, yada yada.';
@@ -26,14 +26,14 @@
   autocompleteFloaterFunctions = {
     createFloater: function() {
       var autocompleteTextField, floater;
-      floater = $('<div class="autocompleteFloater"></div>');
+      floater = $('<div class="autocompleteFloater ui-state-hover"></div>');
       floater.hide();
       autocompleteTextField = this.createAutocompleteTextField();
       autocompleteTextField.appendTo(floater);
       return floater;
     },
     createAutocompleteTextField: function(selectTag) {
-      return $('<input type="text" />');
+      return $('<input type="text" placeholder="Search" />');
     },
     createLinktoShowFloater: function() {
       var link, linkContent;

@@ -1,10 +1,17 @@
 # CHANGELOG
 
+## v0.1.0 2012-04-10
+
+### Minor features
+
+* Add placeholder to text field.
+* Add some styling to floater.
+
 ## v0.0.4 2012-04-10
 
 ### Bug fixes
 
-* Use more specific selectors than `siblings()` like `nextAll()`
+* Use more specific selectors than `siblings()` like `nextAll()`.
 
 ## v0.0.3 2012-04-10
 
