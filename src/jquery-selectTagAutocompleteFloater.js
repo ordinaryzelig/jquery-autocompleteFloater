@@ -2,7 +2,7 @@
   '=========================';
   'autocompleteFloater';
   '';
-  'v0.0.3';
+  'v0.0.4';
   '';
   'https://github.com/ordinaryzelig/jquery-autocompleteFloater';
   'This software is offered as is without warranty, yada yada.';
@@ -42,7 +42,7 @@
       link.click(function(event) {
         var floater, textField;
         event.preventDefault();
-        floater = $(this).next('.autocompleteFloater');
+        floater = $(this).nextAll('.autocompleteFloater:first');
         floater.toggle();
         if (floater.is(':visible')) {
           textField = floater.children('input:text');
@@ -57,14 +57,14 @@
       optionStrings = selectTag.children('option').map(function() {
         return $(this).html();
       }).get();
-      textField = selectTag.siblings('.autocompleteFloater').children('input:text');
+      textField = selectTag.nextAll('.autocompleteFloater:first').children('input:text');
       return textField.autocomplete({
         source: optionStrings,
         select: function(event, ui) {
           var floater, selected;
           selected = ui.item.value;
           floater = $(this).parents('.autocompleteFloater');
-          selectTag = floater.siblings('select');
+          selectTag = floater.prevAll('select:first');
           selectTag.children('option').each(function() {
             var option;
             option = $(this);

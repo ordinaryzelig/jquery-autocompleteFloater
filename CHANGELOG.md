@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## v0.0.4 2012-04-10
+
+### Bug fixes
+
+* Use more specific selectors than `siblings()` like `nextAll()`
+
+## v0.0.3 2012-04-10
+
+### Bug fixes
+
+* Set `$` to `jquery`.
+
 ## v0.0.2 2012-04-10
 
 ### Minor features

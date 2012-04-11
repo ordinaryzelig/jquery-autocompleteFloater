@@ -1,7 +1,7 @@
 '========================='
 'autocompleteFloater'
 ''
-'v0.0.3'
+'v0.0.4'
 ''
 'https://github.com/ordinaryzelig/jquery-autocompleteFloater'
 'This software is offered as is without warranty, yada yada.'
@@ -49,7 +49,7 @@ autocompleteFloaterFunctions = {
     )
     link.click (event) ->
       event.preventDefault()
-      floater = $(@).next('.autocompleteFloater')
+      floater = $(@).nextAll('.autocompleteFloater:first')
       floater.toggle()
       if floater.is(':visible')
         textField = floater.children('input:text')
@@ -66,14 +66,14 @@ autocompleteFloaterFunctions = {
       $(@).html()
     ).get()
     # Add jQuery autocomplete to text field.
-    textField = selectTag.siblings('.autocompleteFloater').children('input:text')
+    textField = selectTag.nextAll('.autocompleteFloater:first').children('input:text')
     textField.autocomplete
       source: optionStrings
       select: (event, ui) ->
         # Find the matching option in the select tag and change it to selected.
         selected = ui.item.value
         floater = $(@).parents('.autocompleteFloater')
-        selectTag = floater.siblings('select')
+        selectTag = floater.prevAll('select:first')
         # Iterate through each option.
         # When matching option found, select it in the select tag.
         selectTag.children('option').each ->
