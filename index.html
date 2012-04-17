@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<head>
+
+  <link rel="stylesheet" href="vendor/css/ui-lightness/jquery-ui-1.8.18.custom.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="jquery-selectTagAutocompleteFloater.css" type="text/css" media="all" />
+
+  <script src="vendor/jquery-1.7.2.min.js" type="text/javascript"></script>
+  <script src="vendor/jquery-ui-1.8.18.custom.js" type="text/javascript"></script>
+  <script src="src/jquery-selectTagAutocompleteFloater.js" type="text/javascript"></script>
+
+  <script type ="text/javascript">
+    $(function() {
+      $('select').autocompleteFloater()
+    })
+  </script>
+
+</head>
+<body>
+
+  <form action="/">
+
+    <h2>jQuery Autocomplete Floater</h2>
+
+    <p>
+      Project page: <a href="https://github.com/ordinaryzelig/jquery-autocompleteFloater">https://github.com/ordinaryzelig/jquery-autocompleteFloater</a>
+    </p>
+
+    <h2>Description</h2>
+
+    <p>
+      Unobtrusively give select tags autocomplete functionality. In other words, leave the select tag alone!
+    </p>
+
+    <h2>Try it out</h2>
+
+    <p>
+      <ul>
+        <li>Click on the '+' to the right of the drop down.</li>
+        <li>Start typing an option to see jQuery autocomplete.</li>
+        <li>Click on an option.</li>
+        <li>The select tag will automatically change to that option.</li>
+      </ul>
+    </p>
+
+    <div>
+      <select>
+        <option value="1">Volvo</option>
+        <option value="2">Saab</option>
+        <option value="3">Mercedes</option>
+        <option value="4">Audi</option>
+      </select>
+    </div>
+
+    <div>
+      <select>
+        <option value="1">Ruby</option>
+        <option value="2">JavaScript</option>
+        <option value="3">CoffeeScript</option>
+        <option value="4">HTML</option>
+      </select>
+    </div>
+
+  </form>
+
+</body>
+</html>
