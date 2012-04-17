@@ -57,9 +57,23 @@ What you need:
 ```javascript
 $('.selectTagSelector').autocompleteFloater()
 ```
+### Options
+
+#### jQueryAutocompleteOptions
+
+Options you would normally pass to jQuery's autocomplete.
+
+```javascript
+// Require at least 3 characters to activate autocomplete.
+$('select').autocompleteFloater({jQueryAutocompleteOptions: {minLength: 3}})
+```
+
+### Gotchas
+
+* Be sure your select tag doesn't have duplicate entries. The first matching option will be selected.
 
 ## TODO
 
-* Allow passing of jQuery autocomplete options.
 * Fix failing test for selecting option. The click() is not causing jasmine to behave correctly.
 * Wrap in ruby gem.
+* Handle duplicate options (not tested, but currently, it will probably choose the first one).

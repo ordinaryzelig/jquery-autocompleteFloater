@@ -1,7 +1,7 @@
 '========================='
 'autocompleteFloater'
 ''
-'v0.2.0'
+'v0.3.0'
 ''
 'https://github.com/ordinaryzelig/jquery-autocompleteFloater'
 'This software is offered as is without warranty, yada yada.'
@@ -9,7 +9,7 @@
 
 $ = jQuery
 
-$.fn.autocompleteFloater = ->
+$.fn.autocompleteFloater = (options = {}) ->
   @.each ->
 
     selectTag = $(@)
@@ -23,7 +23,7 @@ $.fn.autocompleteFloater = ->
     linkToShowFloater.after(floater)
 
     # Add autocomplete.
-    autocompleteFloaterFunctions.autocomplete(selectTag)
+    autocompleteFloaterFunctions.autocomplete(selectTag, options.jQueryAutocompleteOptions)
 
 autocompleteFloaterFunctions = {
 
@@ -69,14 +69,18 @@ autocompleteFloaterFunctions = {
   # Generate jQuery autocomplete to floater text fields.
   # When an option is selected, the select tag will automatically select the matching option.
   # The floater is then hidden.
-  autocomplete: (selectTag) ->
+  autocomplete: (selectTag, jQueryAutocompleteOptions) ->
+
     # Get options to populate autocomplete.
     optionStrings = selectTag.children('option').map(->
       $(@).html()
     ).get()
-    # Add jQuery autocomplete to text field.
+
     textField = selectTag.nextAll('.autocompleteFloater:first').children('input:text')
-    textField.autocomplete
+
+    # Construct options for jQuery autocomplete.
+    # standardOptions should take precedence.
+    standardOptions =
       source: optionStrings
       select: (event, ui) ->
         # Find the matching option in the select tag and change it to selected.
@@ -92,7 +96,9 @@ autocompleteFloaterFunctions = {
             return false
         # Hide the floater.
         floater.hide()
-        # Focus on select tag.
-        selectTag.focus()
+    autocompleteOptions = $.extend jQueryAutocompleteOptions, standardOptions
+
+    # Add jQuery autocomplete to text field.
+    textField.autocomplete autocompleteOptions
 
 }

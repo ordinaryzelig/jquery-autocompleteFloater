@@ -44,6 +44,18 @@ describe 'asdf', ->
       link.click()
       expect(@selectTag.val()).toEqual(2)
 
+  describe 'options', ->
+
+    it 'allows passing of extra options to send to jQuery autocomplete', ->
+      @selectTag.autocompleteFloater({jQueryAutocompleteOptions: {disabled: true}})
+      textField = $('.autocompleteFloater').find('input:text')
+      expect(textField.autocomplete('option', 'disabled')).toEqual(true)
+
+    it 'ignores certain jQuery autocomplete options that are necessary for this plugin', ->
+      @selectTag.autocompleteFloater({jQueryAutocompleteOptions: {source: []}})
+      textField = $('.autocompleteFloater').find('input:text')
+      expect(textField.autocomplete('option', 'source')).toEqual(['Volvo', 'Saab', 'Mercedes', 'Audi'])
+
   describe 'jQuery plugin', ->
 
     it 'is chainable', ->

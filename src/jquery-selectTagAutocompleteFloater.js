@@ -2,7 +2,7 @@
   '=========================';
   'autocompleteFloater';
   '';
-  'v0.2.0';
+  'v0.3.0';
   '';
   'https://github.com/ordinaryzelig/jquery-autocompleteFloater';
   'This software is offered as is without warranty, yada yada.';
@@ -11,7 +11,8 @@
 
   $ = jQuery;
 
-  $.fn.autocompleteFloater = function() {
+  $.fn.autocompleteFloater = function(options) {
+    if (options == null) options = {};
     return this.each(function() {
       var floater, linkToShowFloater, selectTag;
       selectTag = $(this);
@@ -19,7 +20,7 @@
       selectTag.after(linkToShowFloater);
       floater = autocompleteFloaterFunctions.createFloater();
       linkToShowFloater.after(floater);
-      return autocompleteFloaterFunctions.autocomplete(selectTag);
+      return autocompleteFloaterFunctions.autocomplete(selectTag, options.jQueryAutocompleteOptions);
     });
   };
 
@@ -63,13 +64,13 @@
       });
       return link;
     },
-    autocomplete: function(selectTag) {
-      var optionStrings, textField;
+    autocomplete: function(selectTag, jQueryAutocompleteOptions) {
+      var autocompleteOptions, optionStrings, standardOptions, textField;
       optionStrings = selectTag.children('option').map(function() {
         return $(this).html();
       }).get();
       textField = selectTag.nextAll('.autocompleteFloater:first').children('input:text');
-      return textField.autocomplete({
+      standardOptions = {
         source: optionStrings,
         select: function(event, ui) {
           var floater, selected;
@@ -84,10 +85,11 @@
               return false;
             }
           });
-          floater.hide();
-          return selectTag.focus();
+          return floater.hide();
         }
-      });
+      };
+      autocompleteOptions = $.extend(jQueryAutocompleteOptions, standardOptions);
+      return textField.autocomplete(autocompleteOptions);
     }
   };
 
