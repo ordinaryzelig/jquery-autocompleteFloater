@@ -1,7 +1,7 @@
 '========================='
 'autocompleteFloater'
 ''
-'v0.1.1'
+'v0.2.0'
 ''
 'https://github.com/ordinaryzelig/jquery-autocompleteFloater'
 'This software is offered as is without warranty, yada yada.'

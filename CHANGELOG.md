@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## v0.2.0 ???
+
+### Minor features
+
+* Follow good jQuery plugin practice:
+  * chainable.
+
 ## v0.1.1 2012-04-10
 
 ### Minor features

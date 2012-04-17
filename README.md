@@ -2,6 +2,10 @@
 
 https://github.com/ordinaryzelig/jquery-autocompleteFloater
 
+## Demo
+
+http://ordinaryzelig.github.com/jquery-autocompleteFloater/
+
 ## Description
 
 * Unobtrusively add jQuery autocomplete functionality to a select tag.
@@ -56,7 +60,6 @@ $('.selectTagSelector').autocompleteFloater()
 
 ## TODO
 
-* Follow good jQuery plugin authorigin practices: http://docs.jquery.com/Plugins/Authoring.
-* Live demo.
+* Allow passing of jQuery autocomplete options.
 * Fix failing test for selecting option. The click() is not causing jasmine to behave correctly.
 * Wrap in ruby gem.

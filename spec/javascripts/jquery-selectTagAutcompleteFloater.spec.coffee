@@ -36,9 +36,16 @@ describe 'asdf', ->
       @textField.autocomplete('search', 'sa') # As if typing 'saab' to trigger jQuery autocomplete.
       expect($('.ui-autocomplete:visible').length).toEqual(1)
 
+    # This fails.
     it 'automatically changes the select tag value when something chosen', ->
       @textField.autocomplete('search', 'sa')
       link = $('.ui-autocomplete li a:first')
       # This fails.
       link.click()
       expect(@selectTag.val()).toEqual(2)
+
+  describe 'jQuery plugin', ->
+
+    it 'is chainable', ->
+      @selectTag.autocompleteFloater().hide()
+      expect(@selectTag.is(':hidden')).toEqual(true)
